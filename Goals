@@ -1,0 +1,41 @@
+
+   Goal: Create a 3-tier system (e.g., High, Medium, Low risk)
+   How: Use thresholds for induction time, precipitation rate, or % supersaturation loss
+   Why it’s useful: Helps formulators quickly identify risky APIs
+
+**Build a Visual Dashboard**
+   Tool: Spotfire or Python 
+   Include:
+   • Histograms of induction time
+   • Heatmaps of media vs. form vs. polymer
+   • Scatterplots: supersaturation vs. time to crash
+
+**Correlate with Physicochemical Properties**
+   Use: LogP, MW, pKa, H-bond donors/acceptors, Tm, PSA
+   Method: Regression, correlation matrices, or clustering
+
+**Rank-Order Polymer Performance**
+   Goal: Rank polymers based on their ability to inhibit crystallization
+   How: Calculate Δinduction time or ΔAUC vs. control
+
+**Cluster Compounds by Behavior**
+   Tool: K-means or hierarchical clustering
+   Inputs: Precipitation rate, induction time, polymer sensitivity
+
+**Develop a Crystallization Tendency Index (CTI)**
+   Composite Score: Weighted average of precipitation onset, rate, and extent
+
+**Build a Predictive Model**
+   Model Types: Logistic regression, decision trees, or Random Forest
+   Target: Will a compound crash out in 30 minutes?
+
+**Create a Formulation Design Matrix**
+   Match: Compound CTI + Solubility class + pKa with recommended polymer/media
+
+**Publish Internal White Paper or Poster**
+   Title Idea: “Crystallization Risk Profiling Across 90 Compounds: A Data-Driven Strategy for Early-Phase Formulation”
+
+
+
+
+
