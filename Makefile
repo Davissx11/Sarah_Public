@@ -1,5 +1,5 @@
 
-PROJECT := ml-2026
+PROJECT := Sarah_Public
 SHELL := bash
 PATH += $(HOME)/.local/bin
 ACTIVATE := source .venv/bin/activate
