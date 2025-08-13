@@ -1,0 +1,7 @@
+.hypothesis/
+.idea/
+.ipynb_checkpoints
+.mypy_cache/
+.ruff_cache/
+__pycache__/
+tracker/target/

@@ -1,0 +1,65 @@
+[project]
+name = "Sarah_Public"
+version = "0.1.0"
+readme = "ReadMe.md"
+requires-python = "~= 3.12,  < 3.13"
+
+dependencies = [
+    "graphviz",
+    "kagglehub",
+    "opencv-python",
+    "pandas",
+    "scikit-learn",
+    "xgboost",
+    "ydata-profiling",
+]
+[dependency-groups]
+dev = [
+    "black",
+    "isort",
+    "mypy",
+    "pre-commit",
+    "pyright",
+    "ruff",
+    "setuptools",
+]
+
+[tool.uv]
+default-groups = ["dev"]
+
+[tool.black]
+line-length = 100
+
+[tool.isort]
+float_to_top =            true
+include_trailing_comma =  true
+multi_line_output =       "VERTICAL_HANGING_INDENT"
+line_length =             100
+
+[tool.mypy]
+exclude = "^.*/.venv/"
+
+[tool.pyright]
+reportUninitializedInstanceVariable = true
+reportMissingTypeStubs = false
+exclude = [
+    "**/.venv/",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E4", "E7", "E9", "A", "ANN", "ARG", "ASYNC", "B", "BLE", "C", "C4", "C90", "COM",
+    "DTZ", "E", "EM", "EXE", "F", "FBT", "FIX", "FURB", "G", "ICN", "INT", "ISC",
+    "LOG", "N", "NPY", "PD", "PERF", "PIE", "PL", "PTH", "PYI", "Q",
+    "RET", "RSE", "RUF", "SIM", "SLF", "SLOT", "TCH", "TID", "TRY", "UP", "W", "YTT",
+]
+ignore = [
+    "PD901",
+    "PLR2004",
+]
+
+[tool.ruff.lint.flake8-annotations]
+mypy-init-return = true
