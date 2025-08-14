@@ -21,6 +21,7 @@ dev = [
     "pre-commit",
     "pyright",
     "ruff",
+    "safety",
     "setuptools",
 ]
 
