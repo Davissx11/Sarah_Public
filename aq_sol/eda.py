@@ -25,6 +25,7 @@ def create_profile() -> None:
     html = TMP / "solubility.html"
     if not html.exists():
         profile.to_file(html)
+        print(f"You may now view {html} in a browser.")
 
 
 if __name__ == "__main__":
