@@ -26,8 +26,10 @@ lint: ruff-check
 	$(ACTIVATE) && mypy $(STRICT) .
 	$(ACTIVATE) && isort .
 
+ENV := env YDATA_SUPPRESS_BANNER=1
+
 test:
-	$(ACTIVATE) && python -m unittest */*/*_test.py
+	$(ACTIVATE) && $(ENV) python -m unittest */*/*_test.py
 
 CACHES := .mypy_cache/ .pyre/ .pytype/ .ruff_cache/
 clean-caches:
