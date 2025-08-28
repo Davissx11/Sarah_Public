@@ -39,6 +39,7 @@ line_length =             100
 
 [tool.mypy]
 exclude = "^.*/.venv/"
+ignore_missing_imports = true
 
 [tool.pyright]
 reportUninitializedInstanceVariable = true
