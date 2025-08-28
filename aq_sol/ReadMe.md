@@ -23,7 +23,7 @@ On a mac the spreadsheet will be cached at
 # packages used
 
 | name            | version |
-|-----------------+---------|
+| --------------- | ------- |
 | pandas          |     2.3 |
 | scikit-learn    |     1.7 |
 | xgboost         |     3.0 |
