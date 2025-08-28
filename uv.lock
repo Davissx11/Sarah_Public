@@ -35,14 +35,14 @@ wheels = [
 
 [[package]]
 name = "authlib"
-version = "1.6.1"
+version = "1.6.3"
 source = { registry = "https://pkgs.safetycli.com/repository/self-ac894/pypi/simple/" }
 dependencies = [
     { name = "cryptography" },
 ]
-sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/8e/a1/d8d1c6f8bc922c0b87ae0d933a8ed57be1bef6970894ed79c2852a153cd3/authlib-1.6.1.tar.gz", hash = "sha256:4dffdbb1460ba6ec8c17981a4c67af7d8af131231b5a36a88a1e8c80c111cdfd", size = 159988 }
+sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/5d/c6/d9a9db2e71957827e23a34322bde8091b51cb778dcc38885b84c772a1ba9/authlib-1.6.3.tar.gz", hash = "sha256:9f7a982cc395de719e4c2215c5707e7ea690ecf84f1ab126f28c053f4219e610", size = 160836 }
 wheels = [
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/f9/58/cc6a08053f822f98f334d38a27687b69c6655fb05cd74a7a5e70a2aeed95/authlib-1.6.1-py2.py3-none-any.whl", hash = "sha256:e9d2031c34c6309373ab845afc24168fe9e93dc52d252631f52642f21f5ed06e", size = 239299 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/25/2f/efa9d26dbb612b774990741fd8f13c7cf4cfd085b870e4a5af5c82eaf5f1/authlib-1.6.3-py2.py3-none-any.whl", hash = "sha256:7ea0f082edd95a03b7b72edac65ec7f8f68d703017d7e37573aee4fc603f2a48", size = 240105 },
 ]
 
 [[package]]
@@ -253,19 +253,19 @@ wheels = [
 
 [[package]]
 name = "fonttools"
-version = "4.59.0"
+version = "4.59.2"
 source = { registry = "https://pkgs.safetycli.com/repository/self-ac894/pypi/simple/" }
-sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/8a/27/ec3c723bfdf86f34c5c82bf6305df3e0f0d8ea798d2d3a7cb0c0a866d286/fonttools-4.59.0.tar.gz", hash = "sha256:be392ec3529e2f57faa28709d60723a763904f71a2b63aabe14fee6648fe3b14", size = 3532521 }
+sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/0d/a5/fba25f9fbdab96e26dedcaeeba125e5f05a09043bf888e0305326e55685b/fonttools-4.59.2.tar.gz", hash = "sha256:e72c0749b06113f50bcb80332364c6be83a9582d6e3db3fe0b280f996dc2ef22", size = 3540889 }
 wheels = [
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/e2/77/b1c8af22f4265e951cd2e5535dbef8859efcef4fb8dee742d368c967cddb/fonttools-4.59.0-cp312-cp312-macosx_10_13_universal2.whl", hash = "sha256:f9b3a78f69dcbd803cf2fb3f972779875b244c1115481dfbdd567b2c22b31f6b", size = 2767562 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/ff/5a/aeb975699588176bb357e8b398dfd27e5d3a2230d92b81ab8cbb6187358d/fonttools-4.59.0-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:57bb7e26928573ee7c6504f54c05860d867fd35e675769f3ce01b52af38d48e2", size = 2335168 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/54/97/c6101a7e60ae138c4ef75b22434373a0da50a707dad523dd19a4889315bf/fonttools-4.59.0-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:4536f2695fe5c1ffb528d84a35a7d3967e5558d2af58b4775e7ab1449d65767b", size = 4909850 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/bd/6c/fa4d18d641054f7bff878cbea14aa9433f292b9057cb1700d8e91a4d5f4f/fonttools-4.59.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:885bde7d26e5b40e15c47bd5def48b38cbd50830a65f98122a8fb90962af7cd1", size = 4955131 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/20/5c/331947fc1377deb928a69bde49f9003364f5115e5cbe351eea99e39412a2/fonttools-4.59.0-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:6801aeddb6acb2c42eafa45bc1cb98ba236871ae6f33f31e984670b749a8e58e", size = 4899667 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/8a/46/b66469dfa26b8ff0baa7654b2cc7851206c6d57fe3abdabbaab22079a119/fonttools-4.59.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:31003b6a10f70742a63126b80863ab48175fb8272a18ca0846c0482968f0588e", size = 5051349 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/2e/05/ebfb6b1f3a4328ab69787d106a7d92ccde77ce66e98659df0f9e3f28d93d/fonttools-4.59.0-cp312-cp312-win32.whl", hash = "sha256:fbce6dae41b692a5973d0f2158f782b9ad05babc2c2019a970a1094a23909b1b", size = 2201315 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/09/45/d2bdc9ea20bbadec1016fd0db45696d573d7a26d95ab5174ffcb6d74340b/fonttools-4.59.0-cp312-cp312-win_amd64.whl", hash = "sha256:332bfe685d1ac58ca8d62b8d6c71c2e52a6c64bc218dc8f7825c9ea51385aa01", size = 2249408 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/d0/9c/df0ef2c51845a13043e5088f7bb988ca6cd5bb82d5d4203d6a158aa58cf2/fonttools-4.59.0-py3-none-any.whl", hash = "sha256:241313683afd3baacb32a6bd124d0bce7404bc5280e12e291bae1b9bba28711d", size = 1128050 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/ba/3d/1f45db2df51e7bfa55492e8f23f383d372200be3a0ded4bf56a92753dd1f/fonttools-4.59.2-cp312-cp312-macosx_10_13_universal2.whl", hash = "sha256:82906d002c349cad647a7634b004825a7335f8159d0d035ae89253b4abf6f3ea", size = 2769711 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/29/df/cd236ab32a8abfd11558f296e064424258db5edefd1279ffdbcfd4fd8b76/fonttools-4.59.2-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:a10c1bd7644dc58f8862d8ba0cf9fb7fef0af01ea184ba6ce3f50ab7dfe74d5a", size = 2340225 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/98/12/b6f9f964fe6d4b4dd4406bcbd3328821c3de1f909ffc3ffa558fe72af48c/fonttools-4.59.2-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:738f31f23e0339785fd67652a94bc69ea49e413dfdb14dcb8c8ff383d249464e", size = 4912766 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/73/78/82bde2f2d2c306ef3909b927363170b83df96171f74e0ccb47ad344563cd/fonttools-4.59.2-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:0ec99f9bdfee9cdb4a9172f9e8fd578cce5feb231f598909e0aecf5418da4f25", size = 4955178 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/92/77/7de766afe2d31dda8ee46d7e479f35c7d48747e558961489a2d6e3a02bd4/fonttools-4.59.2-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:0476ea74161322e08c7a982f83558a2b81b491509984523a1a540baf8611cc31", size = 4897898 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/c5/77/ce0e0b905d62a06415fda9f2b2e109a24a5db54a59502b769e9e297d2242/fonttools-4.59.2-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:95922a922daa1f77cc72611747c156cfb38030ead72436a2c551d30ecef519b9", size = 5049144 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/d9/ea/870d93aefd23fff2e07cbeebdc332527868422a433c64062c09d4d5e7fe6/fonttools-4.59.2-cp312-cp312-win32.whl", hash = "sha256:39ad9612c6a622726a6a130e8ab15794558591f999673f1ee7d2f3d30f6a3e1c", size = 2206473 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/61/c4/e44bad000c4a4bb2e9ca11491d266e857df98ab6d7428441b173f0fe2517/fonttools-4.59.2-cp312-cp312-win_amd64.whl", hash = "sha256:980fd7388e461b19a881d35013fec32c713ffea1fc37aef2f77d11f332dfd7da", size = 2254706 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/65/a4/d2f7be3c86708912c02571db0b550121caab8cd88a3c0aacb9cfa15ea66e/fonttools-4.59.2-py3-none-any.whl", hash = "sha256:8bd0f759020e87bb5d323e6283914d9bf4ae35a7307dafb2cbd1e379e720ad37", size = 1132315 },
 ]
 
 [[package]]
@@ -376,16 +376,16 @@ wheels = [
 
 [[package]]
 name = "joblib"
-version = "1.5.1"
+version = "1.5.2"
 source = { registry = "https://pkgs.safetycli.com/repository/self-ac894/pypi/simple/" }
-sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/dc/fe/0f5a938c54105553436dbff7a61dc4fed4b1b2c98852f8833beaf4d5968f/joblib-1.5.1.tar.gz", hash = "sha256:f4f86e351f39fe3d0d32a9f2c3d8af1ee4cec285aafcb27003dda5205576b444", size = 330475 }
+sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/e8/5d/447af5ea094b9e4c4054f82e223ada074c552335b9b4b2d14bd9b35a67c4/joblib-1.5.2.tar.gz", hash = "sha256:3faa5c39054b2f03ca547da9b2f52fde67c06240c31853f306aea97f13647b55", size = 331077 }
 wheels = [
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/7d/4f/1195bbac8e0c2acc5f740661631d8d750dc38d4a32b23ee5df3cde6f4e0d/joblib-1.5.1-py3-none-any.whl", hash = "sha256:4719a31f054c7d766948dcd83e9613686b27114f190f717cec7eaa2084f8a74a", size = 307746 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/1e/e8/685f47e0d754320684db4425a0967f7d3fa70126bffd76110b7009a0090f/joblib-1.5.2-py3-none-any.whl", hash = "sha256:4e1f0bdbb987e6d843c70cf43714cb276623def372df3c22fe5266b2670bc241", size = 308396 },
 ]
 
 [[package]]
 name = "kagglehub"
-version = "0.3.12"
+version = "0.3.13"
 source = { registry = "https://pkgs.safetycli.com/repository/self-ac894/pypi/simple/" }
 dependencies = [
     { name = "packaging" },
@@ -393,9 +393,9 @@ dependencies = [
     { name = "requests" },
     { name = "tqdm" },
 ]
-sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/ee/75/c48635ebfb8977945e1a3bf19ec78fba7e3c67b0e808eb633eb9500602ca/kagglehub-0.3.12.tar.gz", hash = "sha256:45e75854630a30605b794eb786b3757beccbbea1acca71600642f67b60e0d7bf", size = 112292 }
+sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/1c/12/e13c1c8b203535b15dacc420c0f1596dda67463175ff1e4404af21815bdd/kagglehub-0.3.13.tar.gz", hash = "sha256:d3c8b6250627d665096cd91a9487559bf5ed61be607eaf63d14511b20eea646e", size = 113694 }
 wheels = [
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/49/bf/c2a24567bb6bd80c1fe7cb2ed1a332666476f69c313256aff96094bef93e/kagglehub-0.3.12-py3-none-any.whl", hash = "sha256:6eeb7c5c8e1f25a28e9b26d3d8ed0c24a4a32f763ea5de6e1b3aabba442f2a26", size = 67996 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/a4/8e/4077b08b95a1f8302c694a8b399bd413815fbe89045c41e6e08cd7d9439a/kagglehub-0.3.13-py3-none-any.whl", hash = "sha256:e00dec8b81396cbad9c7b5eb62a33cf8ae27da26227abd196ed8f054c845ca00", size = 68257 },
 ]
 
 [[package]]
@@ -648,7 +648,7 @@ wheels = [
 
 [[package]]
 name = "pandas"
-version = "2.3.1"
+version = "2.3.2"
 source = { registry = "https://pkgs.safetycli.com/repository/self-ac894/pypi/simple/" }
 dependencies = [
     { name = "numpy" },
@@ -656,15 +656,15 @@ dependencies = [
     { name = "pytz" },
     { name = "tzdata" },
 ]
-sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/d1/6f/75aa71f8a14267117adeeed5d21b204770189c0a0025acbdc03c337b28fc/pandas-2.3.1.tar.gz", hash = "sha256:0a95b9ac964fe83ce317827f80304d37388ea77616b1425f0ae41c9d2d0d7bb2", size = 4487493 }
+sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/79/8e/0e90233ac205ad182bd6b422532695d2b9414944a280488105d598c70023/pandas-2.3.2.tar.gz", hash = "sha256:ab7b58f8f82706890924ccdfb5f48002b83d2b5a3845976a9fb705d36c34dcdb", size = 4488684 }
 wheels = [
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/46/de/b8445e0f5d217a99fe0eeb2f4988070908979bec3587c0633e5428ab596c/pandas-2.3.1-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:689968e841136f9e542020698ee1c4fbe9caa2ed2213ae2388dc7b81721510d3", size = 11588172 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/1e/e0/801cdb3564e65a5ac041ab99ea6f1d802a6c325bb6e58c79c06a3f1cd010/pandas-2.3.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:025e92411c16cbe5bb2a4abc99732a6b132f439b8aab23a59fa593eb00704232", size = 10717365 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/51/a5/c76a8311833c24ae61a376dbf360eb1b1c9247a5d9c1e8b356563b31b80c/pandas-2.3.1-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:9b7ff55f31c4fcb3e316e8f7fa194566b286d6ac430afec0d461163312c5841e", size = 11280411 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/da/01/e383018feba0a1ead6cf5fe8728e5d767fee02f06a3d800e82c489e5daaf/pandas-2.3.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:7dcb79bf373a47d2a40cf7232928eb7540155abbc460925c2c96d2d30b006eb4", size = 11988013 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/5b/14/cec7760d7c9507f11c97d64f29022e12a6cc4fc03ac694535e89f88ad2ec/pandas-2.3.1-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:56a342b231e8862c96bdb6ab97170e203ce511f4d0429589c8ede1ee8ece48b8", size = 12767210 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/50/b9/6e2d2c6728ed29fb3d4d4d302504fb66f1a543e37eb2e43f352a86365cdf/pandas-2.3.1-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:ca7ed14832bce68baef331f4d7f294411bed8efd032f8109d690df45e00c4679", size = 13440571 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/80/a5/3a92893e7399a691bad7664d977cb5e7c81cf666c81f89ea76ba2bff483d/pandas-2.3.1-cp312-cp312-win_amd64.whl", hash = "sha256:ac942bfd0aca577bef61f2bc8da8147c4ef6879965ef883d8e8d5d2dc3e744b8", size = 10987601 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/ec/db/614c20fb7a85a14828edd23f1c02db58a30abf3ce76f38806155d160313c/pandas-2.3.2-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:3fbb977f802156e7a3f829e9d1d5398f6192375a3e2d1a9ee0803e35fe70a2b9", size = 11587652 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/99/b0/756e52f6582cade5e746f19bad0517ff27ba9c73404607c0306585c201b3/pandas-2.3.2-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:1b9b52693123dd234b7c985c68b709b0b009f4521000d0525f2b95c22f15944b", size = 10717686 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/37/4c/dd5ccc1e357abfeee8353123282de17997f90ff67855f86154e5a13b81e5/pandas-2.3.2-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0bd281310d4f412733f319a5bc552f86d62cddc5f51d2e392c8787335c994175", size = 11278722 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/d3/a4/f7edcfa47e0a88cda0be8b068a5bae710bf264f867edfdf7b71584ace362/pandas-2.3.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:96d31a6b4354e3b9b8a2c848af75d31da390657e3ac6f30c05c82068b9ed79b9", size = 11987803 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/f6/61/1bce4129f93ab66f1c68b7ed1c12bac6a70b1b56c5dab359c6bbcd480b52/pandas-2.3.2-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:df4df0b9d02bb873a106971bb85d448378ef14b86ba96f035f50bbd3688456b4", size = 12766345 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/8e/46/80d53de70fee835531da3a1dae827a1e76e77a43ad22a8cd0f8142b61587/pandas-2.3.2-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:213a5adf93d020b74327cb2c1b842884dbdd37f895f42dcc2f09d451d949f811", size = 13439314 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/28/30/8114832daff7489f179971dbc1d854109b7f4365a546e3ea75b6516cea95/pandas-2.3.2-cp312-cp312-win_amd64.whl", hash = "sha256:8c13b81a9347eb8c7548f53fd9a4f08d4dfe996836543f805c987bafa03317ae", size = 10983326 },
 ]
 
 [[package]]
@@ -728,11 +728,11 @@ wheels = [
 
 [[package]]
 name = "platformdirs"
-version = "4.3.8"
+version = "4.4.0"
 source = { registry = "https://pkgs.safetycli.com/repository/self-ac894/pypi/simple/" }
-sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/fe/8b/3c73abc9c759ecd3f1f7ceff6685840859e8070c4d947c93fae71f6a0bf2/platformdirs-4.3.8.tar.gz", hash = "sha256:3d512d96e16bcb959a814c9f348431070822a6496326a4be0911c40b5a74c2bc", size = 21362 }
+sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/23/e8/21db9c9987b0e728855bd57bff6984f67952bea55d6f75e055c46b5383e8/platformdirs-4.4.0.tar.gz", hash = "sha256:ca753cf4d81dc309bc67b0ea38fd15dc97bc30ce419a7f58d13eb3bf14c4febf", size = 21634 }
 wheels = [
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/fe/39/979e8e21520d4e47a0bbe349e2713c0aac6f3d853d0e5b34d76206c439aa/platformdirs-4.3.8-py3-none-any.whl", hash = "sha256:ff7059bb7eb1179e2685604f4aaf157cfd9535242bd23742eadc3c13542139b4", size = 18567 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/40/4b/2028861e724d3bd36227adfa20d3fd24c3fc6d52032f4a93c133be5d17ce/platformdirs-4.4.0-py3-none-any.whl", hash = "sha256:abd01743f24e5287cd7a5db3752faf1a2d65353f38ec26d98e25a6db65958c85", size = 18654 },
 ]
 
 [[package]]
@@ -841,15 +841,15 @@ wheels = [
 
 [[package]]
 name = "pyright"
-version = "1.1.403"
+version = "1.1.404"
 source = { registry = "https://pkgs.safetycli.com/repository/self-ac894/pypi/simple/" }
 dependencies = [
     { name = "nodeenv" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/fe/f6/35f885264ff08c960b23d1542038d8da86971c5d8c955cfab195a4f672d7/pyright-1.1.403.tar.gz", hash = "sha256:3ab69b9f41c67fb5bbb4d7a36243256f0d549ed3608678d381d5f51863921104", size = 3913526 }
+sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/e2/6e/026be64c43af681d5632722acd100b06d3d39f383ec382ff50a71a6d5bce/pyright-1.1.404.tar.gz", hash = "sha256:455e881a558ca6be9ecca0b30ce08aa78343ecc031d37a198ffa9a7a1abeb63e", size = 4065679 }
 wheels = [
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/49/b6/b04e5c2f41a5ccad74a1a4759da41adb20b4bc9d59a5e08d29ba60084d07/pyright-1.1.403-py3-none-any.whl", hash = "sha256:c0eeca5aa76cbef3fcc271259bbd785753c7ad7bcac99a9162b4c4c7daed23b3", size = 5684504 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/84/30/89aa7f7d7a875bbb9a577d4b1dc5a3e404e3d2ae2657354808e905e358e0/pyright-1.1.404-py3-none-any.whl", hash = "sha256:c7b7ff1fdb7219c643079e4c3e7d4125f0dafcc19d253b47e898d130ea426419", size = 5902951 },
 ]
 
 [[package]]
@@ -933,7 +933,7 @@ wheels = [
 
 [[package]]
 name = "requests"
-version = "2.32.4"
+version = "2.32.5"
 source = { registry = "https://pkgs.safetycli.com/repository/self-ac894/pypi/simple/" }
 dependencies = [
     { name = "certifi" },
@@ -941,9 +941,9 @@ dependencies = [
     { name = "idna" },
     { name = "urllib3" },
 ]
-sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz", hash = "sha256:27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422", size = 135258 }
+sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz", hash = "sha256:dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf", size = 134517 }
 wheels = [
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/7c/e4/56027c4a6b4ae70ca9de302488c5ca95ad4a39e190093d6c1a8ace08341b/requests-2.32.4-py3-none-any.whl", hash = "sha256:27babd3cda2a6d50b30443204ee89830707d396671944c998b5975b031ac2b2c", size = 64847 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/1e/db/4254e3eabe8020b458f1a747140d32277ec7a271daf1d235b70dc0b4e6e3/requests-2.32.5-py3-none-any.whl", hash = "sha256:2462f94637a34fd532264295e186976db0f5d453d1cdd31473c85a6a161affb6", size = 64738 },
 ]
 
 [[package]]
@@ -961,14 +961,14 @@ wheels = [
 
 [[package]]
 name = "ruamel-yaml"
-version = "0.18.14"
+version = "0.18.15"
 source = { registry = "https://pkgs.safetycli.com/repository/self-ac894/pypi/simple/" }
 dependencies = [
     { name = "ruamel-yaml-clib", marker = "platform_python_implementation == 'CPython'" },
 ]
-sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/39/87/6da0df742a4684263261c253f00edd5829e6aca970fff69e75028cccc547/ruamel.yaml-0.18.14.tar.gz", hash = "sha256:7227b76aaec364df15936730efbf7d72b30c0b79b1d578bbb8e3dcb2d81f52b7", size = 145511 }
+sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/3e/db/f3950f5e5031b618aae9f423a39bf81a55c148aecd15a34527898e752cf4/ruamel.yaml-0.18.15.tar.gz", hash = "sha256:dbfca74b018c4c3fba0b9cc9ee33e53c371194a9000e694995e620490fd40700", size = 146865 }
 wheels = [
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/af/6d/6fe4805235e193aad4aaf979160dd1f3c487c57d48b810c816e6e842171b/ruamel.yaml-0.18.14-py3-none-any.whl", hash = "sha256:710ff198bb53da66718c7db27eec4fbcc9aa6ca7204e4c1df2f282b6fe5eb6b2", size = 118570 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/d1/e5/f2a0621f1781b76a38194acae72f01e37b1941470407345b6e8653ad7640/ruamel.yaml-0.18.15-py3-none-any.whl", hash = "sha256:148f6488d698b7a5eded5ea793a025308b25eca97208181b6a026037f391f701", size = 119702 },
 ]
 
 [[package]]
@@ -990,27 +990,28 @@ wheels = [
 
 [[package]]
 name = "ruff"
-version = "0.12.8"
+version = "0.12.10"
 source = { registry = "https://pkgs.safetycli.com/repository/self-ac894/pypi/simple/" }
-sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/4b/da/5bd7565be729e86e1442dad2c9a364ceeff82227c2dece7c29697a9795eb/ruff-0.12.8.tar.gz", hash = "sha256:4cb3a45525176e1009b2b64126acf5f9444ea59066262791febf55e40493a033", size = 5242373 }
+sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/3b/eb/8c073deb376e46ae767f4961390d17545e8535921d2f65101720ed8bd434/ruff-0.12.10.tar.gz", hash = "sha256:189ab65149d11ea69a2d775343adf5f49bb2426fc4780f65ee33b423ad2e47f9", size = 5310076 }
 wheels = [
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/c9/1e/c843bfa8ad1114fab3eb2b78235dda76acd66384c663a4e0415ecc13aa1e/ruff-0.12.8-py3-none-linux_armv6l.whl", hash = "sha256:63cb5a5e933fc913e5823a0dfdc3c99add73f52d139d6cd5cc8639d0e0465513", size = 11675315 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/24/ee/af6e5c2a8ca3a81676d5480a1025494fd104b8896266502bb4de2a0e8388/ruff-0.12.8-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:9a9bbe28f9f551accf84a24c366c1aa8774d6748438b47174f8e8565ab9dedbc", size = 12456653 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/99/9d/e91f84dfe3866fa648c10512904991ecc326fd0b66578b324ee6ecb8f725/ruff-0.12.8-py3-none-macosx_11_0_arm64.whl", hash = "sha256:2fae54e752a3150f7ee0e09bce2e133caf10ce9d971510a9b925392dc98d2fec", size = 11659690 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/fe/ac/a363d25ec53040408ebdd4efcee929d48547665858ede0505d1d8041b2e5/ruff-0.12.8-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:c0acbcf01206df963d9331b5838fb31f3b44fa979ee7fa368b9b9057d89f4a53", size = 11896923 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/58/9f/ea356cd87c395f6ade9bb81365bd909ff60860975ca1bc39f0e59de3da37/ruff-0.12.8-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:ae3e7504666ad4c62f9ac8eedb52a93f9ebdeb34742b8b71cd3cccd24912719f", size = 11477612 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/1a/46/92e8fa3c9dcfd49175225c09053916cb97bb7204f9f899c2f2baca69e450/ruff-0.12.8-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:cb82efb5d35d07497813a1c5647867390a7d83304562607f3579602fa3d7d46f", size = 13182745 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/5e/c4/f2176a310f26e6160deaf661ef60db6c3bb62b7a35e57ae28f27a09a7d63/ruff-0.12.8-py3-none-manylinux_2_17_ppc64.manylinux2014_ppc64.whl", hash = "sha256:dbea798fc0065ad0b84a2947b0aff4233f0cb30f226f00a2c5850ca4393de609", size = 14206885 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/87/9d/98e162f3eeeb6689acbedbae5050b4b3220754554526c50c292b611d3a63/ruff-0.12.8-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:49ebcaccc2bdad86fd51b7864e3d808aad404aab8df33d469b6e65584656263a", size = 13639381 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/81/4e/1b7478b072fcde5161b48f64774d6edd59d6d198e4ba8918d9f4702b8043/ruff-0.12.8-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:0ac9c570634b98c71c88cb17badd90f13fc076a472ba6ef1d113d8ed3df109fb", size = 12613271 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/e8/67/0c3c9179a3ad19791ef1b8f7138aa27d4578c78700551c60d9260b2c660d/ruff-0.12.8-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:560e0cd641e45591a3e42cb50ef61ce07162b9c233786663fdce2d8557d99818", size = 12847783 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/4e/2a/0b6ac3dd045acf8aa229b12c9c17bb35508191b71a14904baf99573a21bd/ruff-0.12.8-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:71c83121512e7743fba5a8848c261dcc454cafb3ef2934a43f1b7a4eb5a447ea", size = 11702672 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/9d/ee/f9fdc9f341b0430110de8b39a6ee5fa68c5706dc7c0aa940817947d6937e/ruff-0.12.8-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:de4429ef2ba091ecddedd300f4c3f24bca875d3d8b23340728c3cb0da81072c3", size = 11440626 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/89/fb/b3aa2d482d05f44e4d197d1de5e3863feb13067b22c571b9561085c999dc/ruff-0.12.8-py3-none-musllinux_1_2_i686.whl", hash = "sha256:a2cab5f60d5b65b50fba39a8950c8746df1627d54ba1197f970763917184b161", size = 12462162 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/18/9f/5c5d93e1d00d854d5013c96e1a92c33b703a0332707a7cdbd0a4880a84fb/ruff-0.12.8-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:45c32487e14f60b88aad6be9fd5da5093dbefb0e3e1224131cb1d441d7cb7d46", size = 12913212 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/71/13/ab9120add1c0e4604c71bfc2e4ef7d63bebece0cfe617013da289539cef8/ruff-0.12.8-py3-none-win32.whl", hash = "sha256:daf3475060a617fd5bc80638aeaf2f5937f10af3ec44464e280a9d2218e720d3", size = 11694382 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/f6/dc/a2873b7c5001c62f46266685863bee2888caf469d1edac84bf3242074be2/ruff-0.12.8-py3-none-win_amd64.whl", hash = "sha256:7209531f1a1fcfbe8e46bcd7ab30e2f43604d8ba1c49029bb420b103d0b5f76e", size = 12740482 },
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/cb/5c/799a1efb8b5abab56e8a9f2a0b72d12bd64bb55815e9476c7d0a2887d2f7/ruff-0.12.8-py3-none-win_arm64.whl", hash = "sha256:c90e1a334683ce41b0e7a04f41790c429bf5073b62c1ae701c9dc5b3d14f0749", size = 11884718 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/24/e7/560d049d15585d6c201f9eeacd2fd130def3741323e5ccf123786e0e3c95/ruff-0.12.10-py3-none-linux_armv6l.whl", hash = "sha256:8b593cb0fb55cc8692dac7b06deb29afda78c721c7ccfed22db941201b7b8f7b", size = 11935161 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/d1/b0/ad2464922a1113c365d12b8f80ed70fcfb39764288ac77c995156080488d/ruff-0.12.10-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:ebb7333a45d56efc7c110a46a69a1b32365d5c5161e7244aaf3aa20ce62399c1", size = 12660884 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/d7/f1/97f509b4108d7bae16c48389f54f005b62ce86712120fd8b2d8e88a7cb49/ruff-0.12.10-py3-none-macosx_11_0_arm64.whl", hash = "sha256:d59e58586829f8e4a9920788f6efba97a13d1fa320b047814e8afede381c6839", size = 11872754 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/12/ad/44f606d243f744a75adc432275217296095101f83f966842063d78eee2d3/ruff-0.12.10-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:822d9677b560f1fdeab69b89d1f444bf5459da4aa04e06e766cf0121771ab844", size = 12092276 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/06/1f/ed6c265e199568010197909b25c896d66e4ef2c5e1c3808caf461f6f3579/ruff-0.12.10-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:37b4a64f4062a50c75019c61c7017ff598cb444984b638511f48539d3a1c98db", size = 11734700 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/63/c5/b21cde720f54a1d1db71538c0bc9b73dee4b563a7dd7d2e404914904d7f5/ruff-0.12.10-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:2c6f4064c69d2542029b2a61d39920c85240c39837599d7f2e32e80d36401d6e", size = 13468783 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/02/9e/39369e6ac7f2a1848f22fb0b00b690492f20811a1ac5c1fd1d2798329263/ruff-0.12.10-py3-none-manylinux_2_17_ppc64.manylinux2014_ppc64.whl", hash = "sha256:059e863ea3a9ade41407ad71c1de2badfbe01539117f38f763ba42a1206f7559", size = 14436642 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/e3/03/5da8cad4b0d5242a936eb203b58318016db44f5c5d351b07e3f5e211bb89/ruff-0.12.10-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:1bef6161e297c68908b7218fa6e0e93e99a286e5ed9653d4be71e687dff101cf", size = 13859107 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/19/19/dd7273b69bf7f93a070c9cec9494a94048325ad18fdcf50114f07e6bf417/ruff-0.12.10-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:4f1345fbf8fb0531cd722285b5f15af49b2932742fc96b633e883da8d841896b", size = 12886521 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/c0/1d/b4207ec35e7babaee62c462769e77457e26eb853fbdc877af29417033333/ruff-0.12.10-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1f68433c4fbc63efbfa3ba5db31727db229fa4e61000f452c540474b03de52a9", size = 13097528 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/ff/00/58f7b873b21114456e880b75176af3490d7a2836033779ca42f50de3b47a/ruff-0.12.10-py3-none-manylinux_2_31_riscv64.whl", hash = "sha256:141ce3d88803c625257b8a6debf4a0473eb6eed9643a6189b68838b43e78165a", size = 13080443 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/12/8c/9e6660007fb10189ccb78a02b41691288038e51e4788bf49b0a60f740604/ruff-0.12.10-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:f3fc21178cd44c98142ae7590f42ddcb587b8e09a3b849cbc84edb62ee95de60", size = 11896759 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/67/4c/6d092bb99ea9ea6ebda817a0e7ad886f42a58b4501a7e27cd97371d0ba54/ruff-0.12.10-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:7d1a4e0bdfafcd2e3e235ecf50bf0176f74dd37902f241588ae1f6c827a36c56", size = 11701463 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/59/80/d982c55e91df981f3ab62559371380616c57ffd0172d96850280c2b04fa8/ruff-0.12.10-py3-none-musllinux_1_2_i686.whl", hash = "sha256:e67d96827854f50b9e3e8327b031647e7bcc090dbe7bb11101a81a3a2cbf1cc9", size = 12691603 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/ad/37/63a9c788bbe0b0850611669ec6b8589838faf2f4f959647f2d3e320383ae/ruff-0.12.10-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:ae479e1a18b439c59138f066ae79cc0f3ee250712a873d00dbafadaad9481e5b", size = 13164356 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/47/d4/1aaa7fb201a74181989970ebccd12f88c0fc074777027e2a21de5a90657e/ruff-0.12.10-py3-none-win32.whl", hash = "sha256:9de785e95dc2f09846c5e6e1d3a3d32ecd0b283a979898ad427a9be7be22b266", size = 11896089 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/ad/14/2ad38fd4037daab9e023456a4a40ed0154e9971f8d6aed41bdea390aabd9/ruff-0.12.10-py3-none-win_amd64.whl", hash = "sha256:7837eca8787f076f67aba2ca559cefd9c5cbc3a9852fd66186f4201b87c1563e", size = 13004616 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/24/3c/21cf283d67af33a8e6ed242396863af195a8a6134ec581524fd22b9811b6/ruff-0.12.10-py3-none-win_arm64.whl", hash = "sha256:cc138cc06ed9d4bfa9d667a65af7172b47840e1a98b02ce7011c391e54635ffc", size = 12074225 },
 ]
 
 [[package]]
@@ -1271,7 +1272,7 @@ wheels = [
 
 [[package]]
 name = "typer"
-version = "0.16.0"
+version = "0.16.1"
 source = { registry = "https://pkgs.safetycli.com/repository/self-ac894/pypi/simple/" }
 dependencies = [
     { name = "click" },
@@ -1279,18 +1280,18 @@ dependencies = [
     { name = "shellingham" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/c5/8c/7d682431efca5fd290017663ea4588bf6f2c6aad085c7f108c5dbc316e70/typer-0.16.0.tar.gz", hash = "sha256:af377ffaee1dbe37ae9440cb4e8f11686ea5ce4e9bae01b84ae7c63b87f1dd3b", size = 102625 }
+sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/43/78/d90f616bf5f88f8710ad067c1f8705bf7618059836ca084e5bb2a0855d75/typer-0.16.1.tar.gz", hash = "sha256:d358c65a464a7a90f338e3bb7ff0c74ac081449e53884b12ba658cbd72990614", size = 102836 }
 wheels = [
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/76/42/3efaf858001d2c2913de7f354563e3a3a2f0decae3efe98427125a8f441e/typer-0.16.0-py3-none-any.whl", hash = "sha256:1f79bed11d4d02d4310e3c1b7ba594183bcedb0ac73b27a9e5f28f6fb5b98855", size = 46317 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/2d/76/06dbe78f39b2203d2a47d5facc5df5102d0561e2807396471b5f7c5a30a1/typer-0.16.1-py3-none-any.whl", hash = "sha256:90ee01cb02d9b8395ae21ee3368421faf21fa138cb2a541ed369c08cec5237c9", size = 46397 },
 ]
 
 [[package]]
 name = "typing-extensions"
-version = "4.14.1"
+version = "4.15.0"
 source = { registry = "https://pkgs.safetycli.com/repository/self-ac894/pypi/simple/" }
-sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/98/5a/da40306b885cc8c09109dc2e1abd358d5684b1425678151cdaed4731c822/typing_extensions-4.14.1.tar.gz", hash = "sha256:38b39f4aeeab64884ce9f74c94263ef78f3c22467c8724005483154c26648d36", size = 107673 }
+sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz", hash = "sha256:0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466", size = 109391 }
 wheels = [
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/b5/00/d631e67a838026495268c2f6884f3711a15a9a2a96cd244fdaea53b823fb/typing_extensions-4.14.1-py3-none-any.whl", hash = "sha256:d1e1e3b58374dc93031d6eda2420a48ea44a36c2b4766a4fdeb3710755731d76", size = 43906 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/18/67/36e9267722cc04a6b9f15c7f3441c2363321a3ea07da7ae0c0707beb2a9c/typing_extensions-4.15.0-py3-none-any.whl", hash = "sha256:f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548", size = 44614 },
 ]
 
 [[package]]
@@ -1313,16 +1314,16 @@ wheels = [
 
 [[package]]
 name = "virtualenv"
-version = "20.33.1"
+version = "20.34.0"
 source = { registry = "https://pkgs.safetycli.com/repository/self-ac894/pypi/simple/" }
 dependencies = [
     { name = "distlib" },
     { name = "filelock" },
     { name = "platformdirs" },
 ]
-sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/8b/60/4f20960df6c7b363a18a55ab034c8f2bcd5d9770d1f94f9370ec104c1855/virtualenv-20.33.1.tar.gz", hash = "sha256:1b44478d9e261b3fb8baa5e74a0ca3bc0e05f21aa36167bf9cbf850e542765b8", size = 6082160 }
+sdist = { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/1c/14/37fcdba2808a6c615681cd216fecae00413c9dab44fb2e57805ecf3eaee3/virtualenv-20.34.0.tar.gz", hash = "sha256:44815b2c9dee7ed86e387b842a84f20b93f7f417f95886ca1996a72a4138eb1a", size = 6003808 }
 wheels = [
-    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/ca/ff/ded57ac5ff40a09e6e198550bab075d780941e0b0f83cbeabd087c59383a/virtualenv-20.33.1-py3-none-any.whl", hash = "sha256:07c19bc66c11acab6a5958b815cbcee30891cd1c2ccf53785a28651a0d8d8a67", size = 6060362 },
+    { url = "https://pkgs.safetycli.com/package/self-ac894/pypi/packages/76/06/04c8e804f813cf972e3262f3f8584c232de64f0cde9f703b46cf53a45090/virtualenv-20.34.0-py3-none-any.whl", hash = "sha256:341f5afa7eee943e4984a9207c025feedd768baff6753cd660c857ceb3e36026", size = 5983279 },
 ]
 
 [[package]]
