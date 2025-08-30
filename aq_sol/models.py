@@ -48,6 +48,13 @@ def _train_test_split(
     return x_train, x_test, y_train.ravel(), y_test.ravel()
 
 
+def _z_scale(x: pd.DataFrame) -> pd.DataFrame:
+    scaler = StandardScaler()
+    for col in x.columns:
+        x[col] = scaler.fit_transform(np.array(x[col]).reshape(-1, 1))
+    return x
+
+
 def create_models() -> None:
     text_cols = ["ID", "Name", "InChI", "InChIKey", "SMILES", "Group"]
     df = shuffle(get_solubility_df())
@@ -59,6 +66,7 @@ def create_models() -> None:
     assert len(df) == 9_982, len(df)
 
     x = df.drop("Solubility", axis="columns")
+    x = _z_scale(x)
     y = pd.DataFrame(df["Solubility"])
 
     create_svm_model(x, y)
