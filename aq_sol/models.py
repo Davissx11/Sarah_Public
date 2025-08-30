@@ -64,6 +64,15 @@ def create_models() -> None:
 
     xgb_model = create_xgb_model(x, y)
     show_importance(xgb_model, x.columns)
+    plot_tree(xgb_model, _create_feature_map(x))
+
+
+def _create_feature_map(x: pd.DataFrame) -> Path:
+    fmap = Path(TMP) / "xgboost_feature_map.txt"
+    with fmap.open("w") as fout:
+        for i, name in enumerate(x.columns):
+            fout.write(f"{i:3}  {name:<20} q\n")
+    return fmap
 
 
 def create_svm_model(x: pd.DataFrame, y: pd.DataFrame, *, want_charts: bool = False) -> None:
@@ -137,7 +146,6 @@ def show_importance(model: XGBRegressor, feature_names: pd.Index) -> None:
     with pd.option_context("display.float_format", "{:.3f}".format):
         print("\nTop Feature Importances:")
         print(imp_df.head(4))
-    plot_tree(model)
 
 
 def _evaluate_error(
@@ -169,11 +177,12 @@ def _set_high_res_font_params() -> None:
 
 def plot_tree(
     model: XGBRegressor,
+    feature_map: Path,
     out_file: Path = TMP / "tree.pdf",
     dpi: int = 1800,
 ) -> None:
     _set_high_res_font_params()
-    xgb.plot_tree(model, tree_idx=0, rankdir="LR")
+    xgb.plot_tree(model, tree_idx=0, rankdir="LR", fmap=feature_map)
     plt.savefig(out_file, dpi=dpi, bbox_inches="tight")
 
 

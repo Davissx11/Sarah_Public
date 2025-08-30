@@ -9,6 +9,7 @@ dependencies = [
     "kagglehub",
     "opencv-python",
     "pandas",
+    "plotnine",
     "scikit-learn",
     "sqlalchemy",
     "xgboost",
