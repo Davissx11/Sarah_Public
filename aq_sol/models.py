@@ -53,6 +53,9 @@ def create_models() -> None:
     df = shuffle(get_solubility_df())
     df = df.drop(labels=text_cols, axis="columns")
     df = df.dropna()  # no missing values in this dataset, so this drops nothing
+    rng = np.random.default_rng(seed=42)
+    for i in range(20):
+        df[f"confound{i + 1 :02}"] = rng.random(size=len(df))
     assert len(df) == 9_982, len(df)
 
     x = df.drop("Solubility", axis="columns")
