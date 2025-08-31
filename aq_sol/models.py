@@ -66,7 +66,6 @@ def create_models() -> None:
     assert len(df) == 9_982, len(df)
 
     x = df.drop("Solubility", axis="columns")
-    x = _z_scale(x)
     y = pd.DataFrame(df["Solubility"])
 
     create_svm_model(x, y)
