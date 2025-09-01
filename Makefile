@@ -37,4 +37,4 @@ clean-caches:
 clean: clean-caches
 	rm -rf .venv/
 
-.PHONY: all .venv install ruff-check lint test clean-caches clean
+.PHONY: all install ruff-check lint test clean-caches clean

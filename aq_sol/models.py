@@ -55,14 +55,20 @@ def _z_scale(x: pd.DataFrame) -> pd.DataFrame:
     return x
 
 
+def _add_confounds(df: pd.DataFrame, num_distractor_features: int) -> pd.DataFrame:
+    """Creates a few X columns that are uninformative about Y."""
+    rng = np.random.default_rng(seed=42)
+    for i in range(num_distractor_features):
+        df[f"confound{i + 1 :02}"] = rng.random(size=len(df))
+    return df
+
+
 def create_models() -> None:
     text_cols = ["ID", "Name", "InChI", "InChIKey", "SMILES", "Group"]
     df = shuffle(get_solubility_df())
     df = df.drop(labels=text_cols, axis="columns")
     df = df.dropna()  # no missing values in this dataset, so this drops nothing
-    rng = np.random.default_rng(seed=42)
-    for i in range(20):
-        df[f"confound{i + 1 :02}"] = rng.random(size=len(df))
+    df = _add_confounds(df, 0)
     assert len(df) == 9_982, len(df)
 
     x = df.drop("Solubility", axis="columns")
