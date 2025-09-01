@@ -31,6 +31,15 @@ ENV := env YDATA_SUPPRESS_BANNER=1
 test:
 	$(ACTIVATE) && $(ENV) python -m unittest */*/*_test.py
 
+OUT := /tmp/model-out.txt
+
+compare:
+	touch $(OUT)
+	mv $(OUT){,~}
+	$(ACTIVATE) && aq_sol/models.py | tee $(OUT)
+	@echo
+	-diff -u $(OUT){~,}
+
 CACHES := .mypy_cache/ .pyre/ .pytype/ .ruff_cache/
 clean-caches:
 	rm -rf $(CACHES)
