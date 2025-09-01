@@ -26,4 +26,4 @@ def _get_names() -> list[str]:
 class PopularTest(unittest.TestCase):
 
     def test_popular(self) -> None:
-        self.assertTrue(popular("Potassium_chloride"))
+        self.assertEqual(19_714, popular("Potassium_chloride"))

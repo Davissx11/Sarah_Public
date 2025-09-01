@@ -1,5 +1,6 @@
 import datetime as dt
 from datetime import timedelta
+from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import requests
@@ -34,11 +35,11 @@ def get_pageviews(title: str, days: int = 30) -> int:
     return sum(item["views"] for item in items)
 
 
-def popular(chem: str) -> bool:
+def popular(chem: str) -> int:
 
-    assert get_pageviews(chem) > 0
+    pg = get_page(chem)
+    assert " " in f"{pg.title}"
+    title = Path(pg.url).name
+    assert title == chem
 
-    p = get_page(chem)
-    assert p
-
-    return True
+    return get_pageviews(chem)
