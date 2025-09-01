@@ -7,11 +7,13 @@ requires-python = "~= 3.12,  < 3.13"
 dependencies = [
     "graphviz",
     "kagglehub",
+    "nlpia2-wikipedia",
     "opencv-python",
     "pandas",
     "plotnine",
     "scikit-learn",
     "sqlalchemy",
+    "types-requests",
     "xgboost",
     "ydata-profiling",
 ]
