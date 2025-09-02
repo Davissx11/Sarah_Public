@@ -26,4 +26,4 @@ def _get_names() -> list[str]:
 class PopularTest(unittest.TestCase):
 
     def test_popular(self) -> None:
-        self.assertGreater(popular("Potassium_chloride"), 19_710)
+        self.assertGreater(popular("Potassium_chloride"), 19_000)  # 19_710

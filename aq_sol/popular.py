@@ -1,5 +1,8 @@
 import datetime as dt
+from collections.abc import Generator
+from contextlib import contextmanager
 from datetime import timedelta
+from logging import ERROR, Logger, getLogger
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -7,6 +10,17 @@ import requests
 from wikipedia import get_page
 
 CONTACT_URL = "https://sector6.net/jhanley741/wiki-contact.html"
+
+
+@contextmanager
+def suppress_warnings(log: Logger, level: int = ERROR) -> Generator[None]:
+    """Temporarily set the logger to a specified level."""
+    original_level = log.level
+    try:
+        log.setLevel(level)
+        yield
+    finally:
+        log.setLevel(original_level)
 
 
 def _ymd(d: dt.datetime) -> str:
@@ -37,7 +51,9 @@ def get_pageviews(title: str, days: int = 30) -> int:
 
 def popular(chem: str) -> int:
 
-    pg = get_page(chem)
+    log = getLogger("wikipedia.wikipedia")
+    with suppress_warnings(log):  # no "redirect" chatter
+        pg = get_page(chem)
     assert " " in f"{pg.title}"
     title = Path(pg.url).name
     assert title == chem
