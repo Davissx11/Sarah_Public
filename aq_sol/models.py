@@ -48,11 +48,27 @@ def _train_test_split(
     return x_train, x_test, y_train.ravel(), y_test.ravel()
 
 
+def _z_scale(x: pd.DataFrame) -> pd.DataFrame:
+    scaler = StandardScaler()
+    for col in x.columns:
+        x[col] = scaler.fit_transform(np.array(x[col]).reshape(-1, 1))
+    return x
+
+
+def _add_confounds(df: pd.DataFrame, num_distractor_features: int) -> pd.DataFrame:
+    """Creates a few X columns that are uninformative about Y."""
+    rng = np.random.default_rng(seed=42)
+    for i in range(num_distractor_features):
+        df[f"confound{i + 1 :02}"] = rng.random(size=len(df))
+    return df
+
+
 def create_models() -> None:
     text_cols = ["ID", "Name", "InChI", "InChIKey", "SMILES", "Group"]
     df = shuffle(get_solubility_df())
     df = df.drop(labels=text_cols, axis="columns")
     df = df.dropna()  # no missing values in this dataset, so this drops nothing
+    df = _add_confounds(df, 0)
     assert len(df) == 9_982, len(df)
 
     x = df.drop("Solubility", axis="columns")
@@ -64,6 +80,15 @@ def create_models() -> None:
 
     xgb_model = create_xgb_model(x, y)
     show_importance(xgb_model, x.columns)
+    plot_tree(xgb_model, _create_feature_map(x))
+
+
+def _create_feature_map(x: pd.DataFrame) -> Path:
+    fmap = Path(TMP) / "xgboost_feature_map.txt"
+    with fmap.open("w") as fout:
+        for i, name in enumerate(x.columns):
+            fout.write(f"{i:3}  {name:<20} q\n")
+    return fmap
 
 
 def create_svm_model(x: pd.DataFrame, y: pd.DataFrame, *, want_charts: bool = False) -> None:
@@ -137,7 +162,6 @@ def show_importance(model: XGBRegressor, feature_names: pd.Index) -> None:
     with pd.option_context("display.float_format", "{:.3f}".format):
         print("\nTop Feature Importances:")
         print(imp_df.head(4))
-    plot_tree(model)
 
 
 def _evaluate_error(
@@ -169,11 +193,12 @@ def _set_high_res_font_params() -> None:
 
 def plot_tree(
     model: XGBRegressor,
+    feature_map: Path,
     out_file: Path = TMP / "tree.pdf",
     dpi: int = 1800,
 ) -> None:
     _set_high_res_font_params()
-    xgb.plot_tree(model, tree_idx=0, rankdir="LR")
+    xgb.plot_tree(model, tree_idx=0, rankdir="LR", fmap=feature_map)
     plt.savefig(out_file, dpi=dpi, bbox_inches="tight")
 
 

@@ -11,6 +11,7 @@ import pandas as pd
 from ydata_profiling import ProfileReport
 
 TMP = Path("/tmp")
+DESKTOP = Path("~/Desktop").expanduser()
 
 
 def get_solubility_df() -> pd.DataFrame:
