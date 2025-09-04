@@ -1,5 +1,5 @@
 import datetime as dt
-from collections.abc import Generator
+from collections.abc import Generator, Iterable
 from contextlib import contextmanager
 from datetime import timedelta
 from logging import ERROR, Logger, getLogger
@@ -7,7 +7,11 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import requests
+from sqlalchemy import Column, Integer, String, create_engine, text
+from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 from wikipedia import get_page
+
+from aq_sol.eda import TMP
 
 CONTACT_URL = "https://sector6.net/jhanley741/wiki-contact.html"
 
@@ -59,3 +63,43 @@ def popular(chem: str) -> int:
     assert title == chem
 
     return get_pageviews(chem)
+
+
+class Base(DeclarativeBase): ...
+
+
+class Cache(Base):
+    __tablename__ = "cache"
+    name = Column(String, primary_key=True)
+    page_views = Column(Integer)
+
+    def __repr__(self) -> str:
+        return f"<Cache(name='{self.name}', page_views={self.page_views})>"
+
+
+class PopCache:
+    DB_FILE = TMP / "wiki_cache.sqlite"
+
+    def __init__(self) -> None:
+        engine = create_engine(f"sqlite:///{self.DB_FILE}", isolation_level="AUTOCOMMIT")
+        self.conn = engine.connect()
+
+    def close(self) -> None:
+        self.conn.commit()
+        self.conn.close()
+
+    def get_session(self) -> Session:
+        return sessionmaker(bind=self.conn)()
+
+    def exists(self, name: str) -> bool:
+        select = text("SELECT 1 FROM cache WHERE name = :name")
+        result = self.conn.execute(select, {"name": name})
+        return bool(result.fetchone())
+
+    def add_names(self, names: Iterable[str], page_views: int) -> None:
+        with self.get_session() as sess:
+            for name in sorted(names):
+                if not self.exists(name):
+                    row = Cache(name=name, page_views=page_views)
+                    sess.add(row)
+            sess.commit()
