@@ -158,6 +158,9 @@ class PopCache:
                         except DisambiguationError as e:
                             assert '" may refer to:' in f"{e}", e
                             continue
+                        except ValueError as e:
+                            assert "Either a title or a pageid must be specified" in f"{e}"
+                            continue  # Page id "Calcoloid_Olive_R" does not match any pages
                     cname = Path(pg.url).name
                     sess.add(CName(name=name, cname=cname))
                     sess.commit()
