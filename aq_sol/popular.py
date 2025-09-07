@@ -45,18 +45,20 @@ def _ymd(d: dt.datetime) -> str:
     return d.strftime("%Y%m%d")
 
 
+_punct_to_slash = str.maketrans(
+    "/,;[()]",
+    "///////",
+)
+
+
 def _has_punctuation(s: str) -> bool:
-    if "/" in s:
-        return True  # e.g. Atovaquone(0,430mg/ml) - neutral
-    if "," in s:
-        return True  # e.g. Benzenamine,_N-Phenyl-,_Styrenated
-    if ";" in s:
-        return True  # e.g. "Aluminum;phosphenic acid"
-    if "[" in s:
-        return True  # e.g. Anthra[2,1,9-mna]naphtho[2,3-h]acridine-
-    if "(" in s:
-        return True  # e.g. Benzyl_Phenyl(Sulfooxy)Acetate
-    return False
+    return "/" in s.translate(_punct_to_slash)
+    # Examples of input names that contain punctuation:
+    # - Atovaquone(0,430mg/ml) - neutral
+    # - Benzenamine,_N-Phenyl-,_Styrenated
+    # - Aluminum;phosphenic acid
+    # - Anthra[2,1,9-mna]naphtho[2,3-h]acridine-
+    # - Benzyl_Phenyl(Sulfooxy)Acetate
 
 
 def get_pageviews(title: str, days: int = 30) -> int:
