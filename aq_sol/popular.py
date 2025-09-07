@@ -61,6 +61,12 @@ def _has_punctuation(s: str) -> bool:
     # - Benzyl_Phenyl(Sulfooxy)Acetate
 
 
+def _rate_limit_sleep(brief_pause=0.1) -> None:
+    """Avoid hammering the wiki servers, or they'll ban our client IP."""
+    sleep(brief_pause)
+
+
+
 def get_pageviews(title: str, days: int = 30) -> int:
     headers = {
         "accept": "application/json",
@@ -144,11 +150,11 @@ class PopCache:
                 # name = "Sulfafurazole"  # from Acetyl_Sulfisoxazole
                 if _has_punctuation(name):
                     continue
-                sleep(0.1)
 
                 q_c = sess.query(CName).filter_by(name=name)
                 if not q_c.first():
                     # Go look up the cannonical name.
+                    _rate_limit_sleep()
                     with suppress_errors(log):  # no "redirect" chatter
                         try:
                             pg = get_page(name)
@@ -174,6 +180,7 @@ class PopCache:
 
                 q_pv = sess.query(PView).filter_by(cname=cname)
                 if not q_pv.first():
+                    _rate_limit_sleep()
                     pv = get_pageviews(cname)
                     print(f"{name:<20} --> {pv:6d}   {cname}")
                     row = PView(cname=cname, page_views=pv)
