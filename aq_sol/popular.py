@@ -12,7 +12,7 @@ import requests
 from sqlalchemy import Column, Integer, String, create_engine, text
 from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 from wikipedia import get_page
-from wikipedia.exceptions import PageError
+from wikipedia.exceptions import DisambiguationError, PageError
 
 from aq_sol.eda import TMP
 
@@ -43,6 +43,20 @@ def suppress_errors(log: Logger, level: int = CRITICAL) -> Generator[None]:
 
 def _ymd(d: dt.datetime) -> str:
     return d.strftime("%Y%m%d")
+
+
+def _has_punctuation(s: str) -> bool:
+    if "/" in s:
+        return True  # e.g. Atovaquone(0,430mg/ml) - neutral
+    if "," in s:
+        return True  # e.g. Benzenamine,_N-Phenyl-,_Styrenated
+    if ";" in s:
+        return True  # e.g. "Aluminum;phosphenic acid"
+    if "[" in s:
+        return True  # e.g. Anthra[2,1,9-mna]naphtho[2,3-h]acridine-
+    if "(" in s:
+        return True  # e.g. Benzyl_Phenyl(Sulfooxy)Acetate
+    return False
 
 
 def get_pageviews(title: str, days: int = 30) -> int:
@@ -125,15 +139,10 @@ class PopCache:
         # PC 2: If cname is non NULL, the pview.page_views column will be positive.
         with self.get_session() as sess:
             for name in islice(names, 10_000):
+                # name = "Sulfafurazole"  # from Acetyl_Sulfisoxazole
+                if _has_punctuation(name):
+                    continue
                 sleep(0.1)
-                match name:
-                    # name = "Sulfafurazole"  # from Acetyl_Sulfisoxazole
-                    case "Aluminum;phosphenic acid":
-                        continue
-                if "[" in name:
-                    continue  # e.g. Anthra[2,1,9-mna]naphtho[2,3-h]acridine-
-                if "/" in name:
-                    continue  # e.g. Atovaquone(0,430mg/ml) - neutral
 
                 q_c = sess.query(CName).filter_by(name=name)
                 if not q_c.first():
@@ -143,6 +152,9 @@ class PopCache:
                             pg = get_page(name)
                         except PageError:
                             # Page id "FOO" does not match any pages. Try another id!
+                            continue
+                        except DisambiguationError as e:
+                            assert '" may refer to:' in f"{e}", e
                             continue
                     cname = Path(pg.url).name
                     sess.add(CName(name=name, cname=cname))
