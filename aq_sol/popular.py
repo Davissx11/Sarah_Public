@@ -61,10 +61,9 @@ def _has_punctuation(s: str) -> bool:
     # - Benzyl_Phenyl(Sulfooxy)Acetate
 
 
-def _rate_limit_sleep(brief_pause=0.1) -> None:
+def _rate_limit_sleep(brief_pause: float = 0.1) -> None:
     """Avoid hammering the wiki servers, or they'll ban our client IP."""
     sleep(brief_pause)
-
 
 
 def get_pageviews(title: str, days: int = 30) -> int:
@@ -152,12 +151,18 @@ class PopCache:
                     continue
 
                 q_c = sess.query(CName).filter_by(name=name)
-                if not q_c.first():
+                if first := q_c.first():
+                    if not f"{first.cname}":
+                        continue
+                else:
                     # Go look up the cannonical name.
                     _rate_limit_sleep()
+                    insert = CName(name=name, cname="")  # Make a note that there _is_ no cname.
                     with suppress_errors(log):  # no "redirect" chatter
                         try:
                             pg = get_page(name)
+                            cname = Path(pg.url).name
+                            insert = CName(name=name, cname=cname)
                         except PageError:
                             # Page id "FOO" does not match any pages. Try another id!
                             continue
@@ -167,9 +172,9 @@ class PopCache:
                         except ValueError as e:
                             assert "Either a title or a pageid must be specified" in f"{e}"
                             continue  # Page id "Calcoloid_Olive_R" does not match any pages
-                    cname = Path(pg.url).name
-                    sess.add(CName(name=name, cname=cname))
-                    sess.commit()
+                        finally:
+                            sess.add(insert)
+                            sess.commit()
 
                 q_c = sess.query(CName).filter_by(name=name)
                 cname_entry = q_c.first()
