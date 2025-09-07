@@ -124,14 +124,16 @@ class PopCache:
         # PC 1: name will exist in the cname table, pointing at NULL or a cname
         # PC 2: If cname is non NULL, the pview.page_views column will be positive.
         with self.get_session() as sess:
-            for name in islice(names, 15):
+            for name in islice(names, 10_000):
                 sleep(0.1)
                 match name:
-                    # name = "Sulfafurazole"
-                    case "Acetyl_Sulfisoxazole":
+                    # name = "Sulfafurazole"  # from Acetyl_Sulfisoxazole
+                    case "Aluminum;phosphenic acid":
                         continue
-                    case "Acetylcodone":
-                        continue
+                if "[" in name:
+                    continue  # e.g. Anthra[2,1,9-mna]naphtho[2,3-h]acridine-
+                if "/" in name:
+                    continue  # e.g. Atovaquone(0,430mg/ml) - neutral
 
                 q_c = sess.query(CName).filter_by(name=name)
                 if not q_c.first():
