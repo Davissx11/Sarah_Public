@@ -4,7 +4,7 @@ import unittest
 import pandas as pd
 
 from aq_sol.eda import DESKTOP, get_solubility_df
-from aq_sol.popular import PopCache, popular
+from aq_sol.popular import PopCache, popularity
 
 _comma_first_phrase = re.compile(r"(.+) *,")
 _sem_last_phrase = re.compile(r".*; *(.+)")
@@ -28,11 +28,15 @@ def _get_names() -> list[str]:
 class PopularTest(unittest.TestCase):
 
     def test_popular(self) -> None:
-        self.assertGreater(popular("Potassium_chloride"), 19_000)  # 19_710
+        title, pv = popularity("Potassium_chloride")
+        self.assertEqual("Potassium_chloride", title)
+        self.assertGreater(pv, 19_000)  # 19_710
 
     def test_add_names(self, max_width: int = 40) -> None:
         pc = PopCache()
-        pc.DB_FILE.unlink()
+        # pc.DB_FILE.unlink()
+        pc = PopCache()
+
         df = get_solubility_df().sort_values(by="name")
         df["name"] = df.name.apply(lambda x: str(x)[:max_width])
         df = df[["name", "mol_wt", "mol_log_p", "balaban_j", "solubility"]]
@@ -40,5 +44,8 @@ class PopularTest(unittest.TestCase):
 
         # For now, focus on just the rows whose .name starts with capital "A".
         assert isinstance(df.name, pd.Series)
-        df_a = df[df.name.str.startswith("A")]
-        self.assertEqual(37, len(df_a))
+        df_a = pd.DataFrame(df[df.name.str.startswith("A")])
+        names = sorted(map(str, df_a.name))
+        self.assertEqual(37, len(names))
+
+        pc.add_names(names[2:])

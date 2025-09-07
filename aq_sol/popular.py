@@ -2,14 +2,17 @@ import datetime as dt
 from collections.abc import Generator, Iterable
 from contextlib import contextmanager
 from datetime import timedelta
-from logging import ERROR, Logger, getLogger
+from itertools import islice
+from logging import CRITICAL, ERROR, Logger, getLogger
 from pathlib import Path
+from time import sleep
 from zoneinfo import ZoneInfo
 
 import requests
 from sqlalchemy import Column, Integer, String, create_engine, text
 from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 from wikipedia import get_page
+from wikipedia.exceptions import PageError
 
 from aq_sol.eda import TMP
 
@@ -18,6 +21,17 @@ CONTACT_URL = "https://sector6.net/jhanley741/wiki-contact.html"
 
 @contextmanager
 def suppress_warnings(log: Logger, level: int = ERROR) -> Generator[None]:
+    """Temporarily set the logger to a specified level."""
+    original_level = log.level
+    try:
+        log.setLevel(level)
+        yield
+    finally:
+        log.setLevel(original_level)
+
+
+@contextmanager
+def suppress_errors(log: Logger, level: int = CRITICAL) -> Generator[None]:
     """Temporarily set the logger to a specified level."""
     original_level = log.level
     try:
@@ -53,28 +67,34 @@ def get_pageviews(title: str, days: int = 30) -> int:
     return sum(item["views"] for item in items)
 
 
-def popular(chem: str) -> int:
+def popularity(chem: str) -> tuple[str, int]:
 
     log = getLogger("wikipedia.wikipedia")
     with suppress_warnings(log):  # no "redirect" chatter
         pg = get_page(chem)
-    assert " " in f"{pg.title}"
     title = Path(pg.url).name
-    assert title == chem
+    # example mismatch: 'Acetyl_Sulfisoxazole', 'Sulfafurazole'
+    # assert chem == title, (chem, title)
 
-    return get_pageviews(chem)
+    return title, get_pageviews(chem)
 
 
 class Base(DeclarativeBase): ...
 
 
-class Cache(Base):
-    __tablename__ = "cache"
+class CName(Base):
+    __tablename__ = "cname"  # canonical name, in wikipedia
     name = Column(String, primary_key=True)
-    page_views = Column(Integer)
+    cname = Column(String, nullable=False)
+
+
+class PView(Base):
+    __tablename__ = "pview"
+    cname = Column(String, primary_key=True)
+    page_views = Column(Integer, nullable=False)
 
     def __repr__(self) -> str:
-        return f"<Cache(name='{self.name}', page_views={self.page_views})>"
+        return f"<Cache(cname='{self.cname}', page_views={self.page_views})>"
 
 
 class PopCache:
@@ -82,6 +102,7 @@ class PopCache:
 
     def __init__(self) -> None:
         engine = create_engine(f"sqlite:///{self.DB_FILE}", isolation_level="AUTOCOMMIT")
+        Base.metadata.create_all(engine)
         self.conn = engine.connect()
 
     def close(self) -> None:
@@ -92,14 +113,51 @@ class PopCache:
         return sessionmaker(bind=self.conn)()
 
     def exists(self, name: str) -> bool:
-        select = text("SELECT 1 FROM cache WHERE name = :name")
+        select = text("SELECT 1 FROM cname WHERE name = :name")
         result = self.conn.execute(select, {"name": name})
         return bool(result.fetchone())
 
-    def add_names(self, names: Iterable[str], page_views: int) -> None:
+    def add_names(self, names: Iterable[str]) -> None:
+        log = getLogger("wikipedia.wikipedia")
+
+        # Post Conditions
+        # PC 1: name will exist in the cname table, pointing at NULL or a cname
+        # PC 2: If cname is non NULL, the pview.page_views column will be positive.
         with self.get_session() as sess:
-            for name in sorted(names):
-                if not self.exists(name):
-                    row = Cache(name=name, page_views=page_views)
+            for name in islice(names, 15):
+                sleep(0.1)
+                match name:
+                    # name = "Sulfafurazole"
+                    case "Acetyl_Sulfisoxazole":
+                        continue
+                    case "Acetylcodone":
+                        continue
+
+                q_c = sess.query(CName).filter_by(name=name)
+                if not q_c.first():
+                    # Go look up the cannonical name.
+                    with suppress_errors(log):  # no "redirect" chatter
+                        try:
+                            pg = get_page(name)
+                        except PageError:
+                            # Page id "FOO" does not match any pages. Try another id!
+                            continue
+                    cname = Path(pg.url).name
+                    sess.add(CName(name=name, cname=cname))
+                    sess.commit()
+
+                q_c = sess.query(CName).filter_by(name=name)
+                cname_entry = q_c.first()
+                assert cname_entry
+                cname = f"{cname_entry.cname}"
+                if cname == "List_of_dyes":  # from "Acid Black 52"
+                    continue
+
+                q_pv = sess.query(PView).filter_by(cname=cname)
+                if not q_pv.first():
+                    pv = get_pageviews(cname)
+                    print(f"{name:<20} --> {pv:6d}   {cname}")
+                    row = PView(cname=cname, page_views=pv)
                     sess.add(row)
+                    sess.commit()
             sess.commit()
