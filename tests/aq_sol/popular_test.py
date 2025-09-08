@@ -44,8 +44,8 @@ class PopularTest(unittest.TestCase):
 
         # For now, focus on just the rows whose .name starts with capital "A".
         assert isinstance(df.name, pd.Series)
-        df_a = pd.DataFrame(df[df.name.str.match(r"^[A-Za-z]")])
+        df_a = pd.DataFrame(df[df.name.str.match(r"^[A-Za-z0-9]")])
         names = sorted(map(str, df_a.name))
-        self.assertEqual(5381, len(names))
+        self.assertEqual(9658, len(names))
 
         pc.add_names(names[2:])

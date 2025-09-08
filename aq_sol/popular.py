@@ -46,8 +46,8 @@ def _ymd(d: dt.datetime) -> str:
 
 
 _punct_to_slash = str.maketrans(
-    "/,;[()]",
-    "///////",
+    "/,;[()]~",
+    "////////",
 )
 
 
@@ -177,8 +177,8 @@ class PopCache:
                             assert "Either a title or a pageid must be specified" in f"{e}"
                             continue  # Page id "Calcoloid_Olive_R" does not match any pages
                         except KeyError as e:
-                            print(f"key error on {name}: e")
-                            assert f"{e}" == "KeyError: 'fullurl'", e
+                            print(f"key error on {name}: {e} .")
+                            assert f"{e}" == "'fullurl'", f"{e}"
                             continue
                         finally:
                             sess.add(insert)
