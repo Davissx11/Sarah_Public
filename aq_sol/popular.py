@@ -172,6 +172,10 @@ class PopCache:
                         except ValueError as e:
                             assert "Either a title or a pageid must be specified" in f"{e}"
                             continue  # Page id "Calcoloid_Olive_R" does not match any pages
+                        except KeyError as e:
+                            print(f"key error on {name}: e")
+                            assert f"{e}" == "KeyError: 'fullurl'", e
+                            continue
                         finally:
                             sess.add(insert)
                             sess.commit()
