@@ -82,6 +82,10 @@ def get_pageviews(title: str, days: int = 30) -> int:
     # e.g. .../Potassium_chloride/daily/20250801/20250831
 
     resp = requests.get(url, headers=headers)
+    if resp.status_code == 404:
+        # https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/
+        # en.wikipedia.org/all-access/user/formaldehyde_resin/daily/20250808/20250907
+        return 0
     resp.raise_for_status()
     d = resp.json()
     items = d["items"]
@@ -184,8 +188,6 @@ class PopCache:
                 cname_entry = q_c.first()
                 assert cname_entry
                 cname = f"{cname_entry.cname}"
-                if cname == "List_of_dyes":  # from "Acid Black 52"
-                    continue
 
                 q_pv = sess.query(PView).filter_by(cname=cname)
                 if not q_pv.first():
