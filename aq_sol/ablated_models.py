@@ -1,6 +1,5 @@
 #! /usr/bin/env YDATA_SUPPRESS_BANNER=1 python
 
-
 import pandas as pd
 
 from aq_sol.eda import get_solubility_df
