@@ -18,7 +18,8 @@ def main(log: Path = TMP / "ablated.txt") -> None:
         cmd = f"aq_sol/ablated_models.py  > {log}"
         check_call(cmd, shell=True)
     df = pd.DataFrame(parse_ablation_log(log))
-    plot(df)
+    num_models = 4
+    plot(pd.DataFrame(df[:-num_models]))  # Omit the final trial.
 
 
 def parse_ablation_log(log: Path) -> Generator[dict[str, float | str]]:
