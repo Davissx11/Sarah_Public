@@ -6,6 +6,8 @@ from pathlib import Path
 from subprocess import check_call
 
 import pandas as pd
+import seaborn as sns
+from matplotlib import pyplot as plt
 
 from aq_sol.eda import TMP
 
@@ -40,7 +42,9 @@ def parse_ablation_log(log: Path) -> Generator[dict[str, float | str]]:
 
 
 def plot(df: pd.DataFrame) -> None:
-    print(df)
+    sns.pointplot(data=df, x="trial", y="mae", hue="name")
+    plt.savefig(TMP / "ablated.pdf")
+    plt.show()
 
 
 if __name__ == "__main__":
