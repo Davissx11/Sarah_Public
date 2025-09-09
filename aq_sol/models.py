@@ -55,7 +55,7 @@ def _z_scale(x: pd.DataFrame) -> pd.DataFrame:
     return x
 
 
-def _add_confounds(df: pd.DataFrame, num_distractor_features: int) -> pd.DataFrame:
+def add_confounds(df: pd.DataFrame, num_distractor_features: int) -> pd.DataFrame:
     """Creates a few X columns that are uninformative about Y."""
     rng = np.random.default_rng(seed=42)
     for i in range(num_distractor_features):
@@ -63,16 +63,18 @@ def _add_confounds(df: pd.DataFrame, num_distractor_features: int) -> pd.DataFra
     return df
 
 
+text_cols = ["id", "name", "in_ch_i", "in_ch_i_key", "smiles", "group"]
+
+
 def create_models() -> None:
-    text_cols = ["ID", "Name", "InChI", "InChIKey", "SMILES", "Group"]
     df = shuffle(get_solubility_df())
     df = df.drop(labels=text_cols, axis="columns")
     df = df.dropna()  # no missing values in this dataset, so this drops nothing
-    df = _add_confounds(df, 0)
+    df = add_confounds(df, 0)
     assert len(df) == 9_982, len(df)
 
-    x = df.drop("Solubility", axis="columns")
-    y = pd.DataFrame(df["Solubility"])
+    x = df.drop("solubility", axis="columns")
+    y = pd.DataFrame(df["solubility"])
 
     create_svm_model(x, y)
     create_gbr_model(x, y)
