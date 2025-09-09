@@ -104,8 +104,7 @@ def popularity(chem: str) -> tuple[str, int]:
 
 
 def now() -> datetime:
-    # return datetime.now(UTC).replace(second=0, microsecond=0)
-    return datetime(2025, 9, 9, 0, 42, 0, tzinfo=UTC)
+    return datetime.now(UTC).replace(second=0, microsecond=0)
 
 
 class Base(DeclarativeBase): ...
