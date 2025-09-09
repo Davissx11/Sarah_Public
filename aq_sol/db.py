@@ -18,7 +18,7 @@ def create_aq_sol_table(table_name: str = "aq_sol") -> str:
         conn.execute(drop)
 
         df = get_solubility_df()
-        df["Ocurrences"] = df.Ocurrences.astype(np.int32)
+        df["ocurrences"] = df.ocurrences.astype(np.int32)
 
         df.to_sql(table_name, conn, index=False)
         return table_name
