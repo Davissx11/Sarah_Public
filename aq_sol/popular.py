@@ -1,7 +1,6 @@
-import datetime as dt
 from collections.abc import Generator, Iterable
 from contextlib import contextmanager
-from datetime import timedelta
+from datetime import UTC, datetime, timedelta
 from itertools import islice
 from logging import CRITICAL, ERROR, Logger, getLogger
 from pathlib import Path
@@ -9,7 +8,7 @@ from time import sleep
 from zoneinfo import ZoneInfo
 
 import requests
-from sqlalchemy import Column, Integer, String, create_engine, text
+from sqlalchemy import Column, DateTime, Integer, String, create_engine, text
 from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 from wikipedia import get_page
 from wikipedia.exceptions import DisambiguationError, PageError
@@ -41,7 +40,7 @@ def suppress_errors(log: Logger, level: int = CRITICAL) -> Generator[None]:
         log.setLevel(original_level)
 
 
-def _ymd(d: dt.datetime) -> str:
+def _ymd(d: datetime) -> str:
     return d.strftime("%Y%m%d")
 
 
@@ -72,7 +71,7 @@ def get_pageviews(title: str, days: int = 30) -> int:
         "user-agent": CONTACT_URL,
     }
     tz = ZoneInfo("America/Los_Angeles")
-    end_date = dt.datetime.now(tz=tz)
+    end_date = datetime.now(tz=tz)
     start_date = end_date - timedelta(days=days)
     base_url = (
         "https://wikimedia.org/api/rest_v1/metrics/"
@@ -104,6 +103,10 @@ def popularity(chem: str) -> tuple[str, int]:
     return title, get_pageviews(chem)
 
 
+def now() -> datetime:
+    return datetime.now(UTC).replace(second=0, microsecond=0)
+
+
 class Base(DeclarativeBase): ...
 
 
@@ -111,12 +114,14 @@ class CName(Base):
     __tablename__ = "cname"  # canonical name, in wikipedia
     name = Column(String, primary_key=True)
     cname = Column(String, nullable=False)
+    modified = Column(DateTime, nullable=False, default=now)
 
 
 class PView(Base):
     __tablename__ = "pview"
     cname = Column(String, primary_key=True)
     page_views = Column(Integer, nullable=False)
+    modified = Column(DateTime, nullable=False, default=now)
 
     def __repr__(self) -> str:
         return f"<Cache(cname='{self.cname}', page_views={self.page_views})>"

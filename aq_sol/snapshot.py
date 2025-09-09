@@ -10,7 +10,7 @@ from pathlib import Path
 import pandas as pd
 from sqlalchemy import text
 
-from aq_sol.popular import PopCache
+from aq_sol.popular import PopCache, now
 
 REPO_TOP = Path(__file__ + "/../..").resolve()
 OUT = REPO_TOP / "aq_sol/out"
@@ -36,9 +36,11 @@ def load_tables_if_empty() -> None:
     if int(n) == 0:
         df_c = pd.read_csv(OUT / "cname.csv")
         df_c["cname"] = df_c.cname.replace({None: ""})
+        df_c["modified"] = now()
         df_c.to_sql("cname", pc.conn, if_exists="append", index=False)
 
         df_pv = pd.read_csv(OUT / "pview.csv")
+        df_pv["modified"] = now()
         df_pv.to_sql("pview", pc.conn, if_exists="append", index=False)
 
 
