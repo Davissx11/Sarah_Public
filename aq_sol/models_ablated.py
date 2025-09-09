@@ -14,6 +14,31 @@ from aq_sol.models import (
     text_cols,
 )
 
+# mol_log_p is the most predictive feature.
+predictors = reversed(
+    [
+        "mol_log_p",
+        "bertz_ct",
+        "mol_mr",
+        "num_heteroatoms",
+        "tpsa",
+        "balaban_j",
+        "mol_wt",
+        "num_rotatable_bonds",
+        "num_valence_electrons",
+        "num_h_acceptors",
+        "num_h_donors",
+        "ring_count",
+        "heavy_atom_count",
+        "labute_asa",
+        "num_aromatic_rings",
+        "ocurrences",
+        "num_saturated_rings",
+        "sd",
+        "num_aliphatic_rings",
+    ],
+)
+
 
 def create_ablated_models() -> None:
     df = shuffle(get_solubility_df())
@@ -22,14 +47,18 @@ def create_ablated_models() -> None:
     df = add_confounds(df, 0)
     assert len(df) == 9_982, len(df)
 
-    x = df.drop("solubility", axis="columns")
-    y = pd.DataFrame(df["solubility"])
+    for i, victim in enumerate(predictors):
+        print("\n\ntrial", i)
 
-    create_svm_model(x, y)
-    create_gbr_model(x, y)
-    create_rf_model(x, y)
+        x = df.drop("solubility", axis="columns")
+        y = pd.DataFrame(df["solubility"])
 
-    create_xgb_model(x, y)
+        create_svm_model(x, y)
+        create_gbr_model(x, y)
+        create_rf_model(x, y)
+        create_xgb_model(x, y)
+
+        df = df.drop(victim, axis="columns")
 
 
 if __name__ == "__main__":
