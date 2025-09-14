@@ -5,7 +5,9 @@ readme = "ReadMe.md"
 requires-python = "~= 3.12,  < 3.13"
 
 dependencies = [
+    "fastapi",
     "graphviz",
+    "httpx",
     "jupyterlab",
     "kagglehub",
     "nlpia2-wikipedia",
@@ -15,6 +17,7 @@ dependencies = [
     "scikit-learn",
     "sqlalchemy",
     "types-requests",
+    "uvicorn",
     "xgboost",
     "ydata-profiling",
 ]
