@@ -6,6 +6,8 @@ from pprint import pp
 import httpx
 import uvicorn
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
@@ -31,11 +33,10 @@ def open_weather_fetch_forecast(zip_code: str) -> dict[str, float]:
     response.raise_for_status()
     payload = dict(response.json())
     hourly = list(payload["list"])
-    hour_to_temp = {d["dt_txt"]: float(d["main"]["temp"]) for d in hourly}
-    return hour_to_temp
+    return {d["dt_txt"]: round(d["main"]["temp"], 1) for d in hourly}
 
 
-def open_meteo_fetch_forecast(zip_code: str, country_code: str) -> dict:  # type: ignore
+def open_meteo_fetch_forecast(zip_code: str, country_code: str = "US") -> dict:  # type: ignore
     params = {
         "postal_code": zip_code,
         "country": country_code,
@@ -70,5 +71,11 @@ async def get_forecast(zip_code: str) -> dict[str, float]:
     return open_weather_fetch_forecast(zip_code)
 
 
+@app.get("/favicon.ico")
+async def favicon() -> FileResponse:
+    return FileResponse("dash/asset/weather-app-7477790.ico", media_type="image/x-icon")
+
+
 if __name__ == "__main__":
+    app.mount("/static", StaticFiles(directory="dash/asset"), name="static")
     uvicorn.run("dash.board:app", host="127.0.0.1", port=8000, reload=True)
