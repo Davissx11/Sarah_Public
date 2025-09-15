@@ -27,7 +27,7 @@ dev = [
     "isort",
     "mypy",
     "pre-commit",
-    "pyright",
+    "pyright >= 1.1.405",
     "ruff",
     "safety",
     "setuptools",
