@@ -5,7 +5,9 @@ readme = "ReadMe.md"
 requires-python = "~= 3.12,  < 3.13"
 
 dependencies = [
+    "fastapi",
     "graphviz",
+    "httpx",
     "jupyterlab",
     "kagglehub",
     "nlpia2-wikipedia",
@@ -15,6 +17,7 @@ dependencies = [
     "scikit-learn",
     "sqlalchemy",
     "types-requests",
+    "uvicorn",
     "xgboost",
     "ydata-profiling",
 ]
@@ -24,7 +27,7 @@ dev = [
     "isort",
     "mypy",
     "pre-commit",
-    "pyright",
+    "pyright >= 1.1.405",
     "ruff",
     "safety",
     "setuptools",
@@ -64,7 +67,6 @@ select = [
     "RET", "RSE", "RUF", "SIM", "SLF", "SLOT", "TCH", "TID", "TRY", "UP", "W", "YTT",
 ]
 ignore = [
-    "PD901",
     "PLR2004",
 ]
 
