@@ -18,14 +18,18 @@ def open_meteo_fetch_forecast(zip_code: str, country_code: str = "US") -> dict[s
     response.raise_for_status()
     payload = response.json()
     hourly_data = payload["hourly"]
-    return {
-        dt: round(temp, 1)
-        for dt, temp in zip(
-            hourly_data["time"],
-            hourly_data["temperature_2m"],
-            strict=False,
-        )
-    }
+    return dict(
+        sorted(
+            [
+                (dt, round(temp, 1))
+                for dt, temp in zip(
+                    hourly_data["time"],
+                    hourly_data["temperature_2m"],
+                    strict=False,
+                )
+            ],
+        ),
+    )
 
 
 zip_eng = SearchEngine()
