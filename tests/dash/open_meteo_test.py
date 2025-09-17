@@ -1,6 +1,6 @@
 import unittest
 
-from dash.open_meteo import zip_to_coords
+from dash.open_meteo import open_meteo_fetch_forecast, zip_to_coords
 
 
 class OpenMeteoTest(unittest.TestCase):
@@ -21,3 +21,7 @@ class OpenMeteoTest(unittest.TestCase):
             (42.36, -71.01),
             zip_to_coords("02128"),
         )
+
+    def test_fetch(self) -> None:
+        d = open_meteo_fetch_forecast("94080")
+        self.assertEqual(168, len(d))
