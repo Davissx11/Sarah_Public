@@ -2,7 +2,7 @@
 
 import uvicorn
 from fastapi import FastAPI
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
 from dash.open_meteo import open_meteo_fetch_forecast
@@ -18,6 +18,11 @@ async def get_forecast(zip_code: str) -> dict[str, float]:
 @app.get("/favicon.ico")
 async def favicon() -> FileResponse:
     return FileResponse("dash/asset/weather-app-7477790.ico", media_type="image/x-icon")
+
+
+@app.get("/")
+async def root() -> RedirectResponse:
+    return RedirectResponse("/forecast/94025")
 
 
 if __name__ == "__main__":
